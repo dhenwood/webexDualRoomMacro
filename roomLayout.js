@@ -26,14 +26,14 @@ xapi.event.on('UserInterface Extensions Widget Action', (event) => {
 
 
 function toggleButtons(state){
-  const MONITORING_URL = "https://webexapis.com/v1/deviceConfigurations?deviceId=" + DEVICE_ID;
+  const WEBEX_URL = "https://webexapis.com/v1/deviceConfigurations?deviceId=" + DEVICE_ID;
   const CONTENT_TYPE = "Content-Type: application/json-patch+json";
 
   var messagecontent = {"value":state,"op": "replace","path":"UserInterface.Features.HideAll/sources/configured/value"};
   var body = JSON.stringify(messagecontent);
   console.log("message: " + body);
 
-  xapi.command('HttpClient Patch', { 'Header': [CONTENT_TYPE, AUTHTOKEN] , 'Url':MONITORING_URL, 'AllowInsecureHTTPS': 'True'}
+  xapi.command('HttpClient Patch', { 'Header': [CONTENT_TYPE, AUTHTOKEN] , 'Url':WEBEX_URL, 'AllowInsecureHTTPS': 'True'}
      , JSON.stringify(messagecontent)).then(
     (result) => {
   });
@@ -42,26 +42,26 @@ function toggleButtons(state){
 
 
 function setVideo(){
-  const MONITORING_URL = "https://api.ciscospark.com/v1/xapi/command/Presentation.Start";
+  const WEBEX_URL = "https://api.ciscospark.com/v1/xapi/command/Presentation.Start";
 
   var messagecontent = {"deviceId": DEVICE_ID, "arguments":{"ConnectorId": [4]}    };
   var body = JSON.stringify(messagecontent);
   console.log("message: " + body);
 
-  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, AUTHTOKEN] , 'Url':MONITORING_URL, 'AllowInsecureHTTPS': 'True'}
+  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, AUTHTOKEN] , 'Url':WEBEX_URL, 'AllowInsecureHTTPS': 'True'}
      , JSON.stringify(messagecontent)).then(
     (result) => {
     });
 }
 
 function cancelVideo(){
-  const MONITORING_URL = "https://api.ciscospark.com/v1/xapi/command/Presentation.Stop";
+  const WEBEX_URL = "https://api.ciscospark.com/v1/xapi/command/Presentation.Stop";
 
   var messagecontent = {"deviceId": DEVICE_ID};
   var body = JSON.stringify(messagecontent);
   console.log("message: " + body);
 
-  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, AUTHTOKEN] , 'Url':MONITORING_URL, 'AllowInsecureHTTPS': 'True'}
+  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, AUTHTOKEN] , 'Url':WEBEX_URL, 'AllowInsecureHTTPS': 'True'}
      , JSON.stringify(messagecontent)).then(
     (result) => {
     });
@@ -77,14 +77,14 @@ function displayAlertMessage(textMessage){
 
 
 function setWallpaper(){
-  var url = "https://www.employees.org/~dhenwood/WbxWallpaper/apraOneRoom.zip";
-  const MONITORING_URL = "https://api.ciscospark.com/v1/xapi/command/Provisioning.Service.Fetch";
+  const WALLPAPER_URL = "https://www.employees.org/~dhenwood/WbxWallpaper/apraOneRoom.zip";
+  const WEBEX_URL = "https://api.ciscospark.com/v1/xapi/command/Provisioning.Service.Fetch";
 
-  var messagecontent = {"deviceId": DEVICE_ID, "arguments":{"URL": url}    };
+  var messagecontent = {"deviceId": DEVICE_ID, "arguments":{"URL": WALLPAPER_URL}    };
   var body = JSON.stringify(messagecontent);
   console.log("message: " + body);
 
-  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, AUTHTOKEN] , 'Url':MONITORING_URL, 'AllowInsecureHTTPS': 'True'}
+  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, AUTHTOKEN] , 'Url':WEBEX_URL, 'AllowInsecureHTTPS': 'True'}
      , JSON.stringify(messagecontent)).then(
     (result) => {
     });
@@ -92,13 +92,13 @@ function setWallpaper(){
 
 
 function clearWallpaper(){
-  const MONITORING_URL = "https://api.ciscospark.com/v1/xapi/command/UserInterface.Branding.Clear";
+  const WEBEX_URL = "https://api.ciscospark.com/v1/xapi/command/UserInterface.Branding.Clear";
 
   var messagecontent = {"deviceId": DEVICE_ID};
   var body = JSON.stringify(messagecontent);
   console.log("message: " + body);
 
-  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, AUTHTOKEN] , 'Url':MONITORING_URL, 'AllowInsecureHTTPS': 'True'}
+  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, AUTHTOKEN] , 'Url':WEBEX_URL, 'AllowInsecureHTTPS': 'True'}
      , JSON.stringify(messagecontent)).then(
     (result) => {
     });
