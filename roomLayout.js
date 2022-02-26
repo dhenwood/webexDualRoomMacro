@@ -2,8 +2,8 @@ import xapi from 'xapi';
 
 // PRIMARY DEVICE //
 
-const token = "<removed>";
-const AUTHTOKEN = "Authorization: Bearer " + token;
+const TOKEN = "<removed>";
+const AUTHTOKEN = "Authorization: Bearer " + TOKEN;
 const DEVICE_ID = "<removed>";
 const CONTENT_TYPE = "Content-Type: application/json";
 
