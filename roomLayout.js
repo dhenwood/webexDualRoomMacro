@@ -3,7 +3,7 @@ import xapi from 'xapi';
 // PRIMARY DEVICE //
 
 const token = "<removed>";
-const SERVICENOW_AUTHTOKEN = "Authorization: Bearer " + token;
+const AUTHTOKEN = "Authorization: Bearer " + token;
 const DEVICE_ID = "<removed>";
 const CONTENT_TYPE = "Content-Type: application/json";
 
@@ -33,7 +33,7 @@ function toggleButtons(state){
   var body = JSON.stringify(messagecontent);
   console.log("message: " + body);
 
-  xapi.command('HttpClient Patch', { 'Header': [CONTENT_TYPE, SERVICENOW_AUTHTOKEN] , 'Url':MONITORING_URL, 'AllowInsecureHTTPS': 'True'}
+  xapi.command('HttpClient Patch', { 'Header': [CONTENT_TYPE, AUTHTOKEN] , 'Url':MONITORING_URL, 'AllowInsecureHTTPS': 'True'}
      , JSON.stringify(messagecontent)).then(
     (result) => {
   });
@@ -48,7 +48,7 @@ function setVideo(){
   var body = JSON.stringify(messagecontent);
   console.log("message: " + body);
 
-  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, SERVICENOW_AUTHTOKEN] , 'Url':MONITORING_URL, 'AllowInsecureHTTPS': 'True'}
+  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, AUTHTOKEN] , 'Url':MONITORING_URL, 'AllowInsecureHTTPS': 'True'}
      , JSON.stringify(messagecontent)).then(
     (result) => {
     });
@@ -61,7 +61,7 @@ function cancelVideo(){
   var body = JSON.stringify(messagecontent);
   console.log("message: " + body);
 
-  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, SERVICENOW_AUTHTOKEN] , 'Url':MONITORING_URL, 'AllowInsecureHTTPS': 'True'}
+  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, AUTHTOKEN] , 'Url':MONITORING_URL, 'AllowInsecureHTTPS': 'True'}
      , JSON.stringify(messagecontent)).then(
     (result) => {
     });
@@ -84,7 +84,7 @@ function setWallpaper(){
   var body = JSON.stringify(messagecontent);
   console.log("message: " + body);
 
-  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, SERVICENOW_AUTHTOKEN] , 'Url':MONITORING_URL, 'AllowInsecureHTTPS': 'True'}
+  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, AUTHTOKEN] , 'Url':MONITORING_URL, 'AllowInsecureHTTPS': 'True'}
      , JSON.stringify(messagecontent)).then(
     (result) => {
     });
@@ -98,7 +98,7 @@ function clearWallpaper(){
   var body = JSON.stringify(messagecontent);
   console.log("message: " + body);
 
-  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, SERVICENOW_AUTHTOKEN] , 'Url':MONITORING_URL, 'AllowInsecureHTTPS': 'True'}
+  xapi.command('HttpClient Post', { 'Header': [CONTENT_TYPE, AUTHTOKEN] , 'Url':MONITORING_URL, 'AllowInsecureHTTPS': 'True'}
      , JSON.stringify(messagecontent)).then(
     (result) => {
     });
